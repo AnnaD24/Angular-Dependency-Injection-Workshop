@@ -1,0 +1,33 @@
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: lightskyblue;
+  flex: 1;
+  height: 100vh;
+}
+
+
+.right {
+  background-color: lightskyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+}
+
+.card {
+  width: 70%;
+  height: 90%;
+  border: solid 12px white;
+  background-color: #2d679a;
+}
+
+.title {
+  font-family: 'Comics', sans-serif;
+  color: white;
+  font-size: 50px;
+}

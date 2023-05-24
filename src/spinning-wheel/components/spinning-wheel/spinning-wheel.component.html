@@ -5,7 +5,13 @@
     <span class="title">Spinning Wheel</span>
   </div>
   <div class="right">
-    <div class="card">
+    <div class="parent card">
+      <div class="child card">
+        <ng-content select="[first]"></ng-content>
+      </div>
+      <div class="child card">
+        <ng-content select="[second]"></ng-content>
+      </div>
     </div>
   </div>
 </div>

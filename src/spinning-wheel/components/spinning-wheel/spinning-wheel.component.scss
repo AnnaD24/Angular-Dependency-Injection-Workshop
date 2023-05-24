@@ -19,11 +19,23 @@
   height: 100vh;
 }
 
-.card {
+.parent.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
   width: 70%;
   height: 90%;
   border: solid 12px white;
   background-color: #2d679a;
+}
+
+.child.card {
+  width: 70%;
+  height: 90%;
+  background-color: white;
 }
 
 .title {
@@ -31,3 +43,5 @@
   color: white;
   font-size: 50px;
 }
+
+

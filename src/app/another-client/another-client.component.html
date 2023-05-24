@@ -1,0 +1,6 @@
+<div *ngIf="spinService.prizeWon$ | async as prize" class="d-flex flex-column align-items-center gap-2">
+  <p>Hi, I am Bolek component</p>
+  <button pButton label="Spin the wheel" (click)="spinService.spinAndWin()"></button>
+  <p>I won: {{prize}}</p>
+</div>
+

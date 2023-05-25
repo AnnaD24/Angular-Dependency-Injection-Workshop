@@ -11,6 +11,6 @@ export class PrizeGeneratorService {
 
   public getPrize() {
     const randomIndex = Math.floor(Math.random() * 70);
-    return emojis.at(randomIndex) as string
+    return randomIndex + ' de ' + emojis.at(randomIndex) as string
   }
 }

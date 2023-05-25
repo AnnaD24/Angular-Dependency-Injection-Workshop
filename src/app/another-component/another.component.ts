@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import {SpinService} from "../../spinning-wheel/service/spin.service";
 
 @Component({
-  selector: 'app-one-client',
-  templateUrl: './one-client.component.html',
-  styleUrls: ['./one-client.component.css']
+  selector: 'app-another-component',
+  templateUrl: './another.component.html',
+  styleUrls: ['./another.component.scss']
 })
-export class OneClientComponent {
+export class AnotherComponent {
+
   constructor(protected spinService: SpinService) {}
+
 
 }

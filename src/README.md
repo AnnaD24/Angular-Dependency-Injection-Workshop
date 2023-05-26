@@ -1,14 +1,28 @@
-In acest exemplu vom descoperi cum functioneaza provider key-urile useClass si useExisting.
 
-Vom porni cu service-ul SpinService provide-uit la nivel de root, care il face sa fie disponibil in intreaga aplicatie. <br />
-In acest caz, one component si another component vor share-ui **aceeasi instanta de SpinService**, 
-astfel ca atunci cand oricare dintre ei invarte de roata, amandoi vor primi **acelasi** premiu.
+## In acest exemplu vom explora utilizarea provider key-urilor useFactory și useValue.
 
-In WheelModule am creat un **FakeSpinService** care ofera premii... false. <br />
-Pentru a face o gluma utilizatorilor OneComponent si AnotherComponent, ne vom folosi de **useClass** si vom substitui **SpinService** cu un **FakeSpinService**, fara ca utilizatorii sa vada aceasta schimbare. 
+Scopul nostru este să furnizăm (să **injectăm**) un **FakeSpinService doar** în cazul în care este 1 aprilie. In restul zilelor, vom injecta un SpinService. <br />
 
+---
 
-Pentru a studia **useExisting**, vom face un test: <br/>
-Daca in OneComponent injectam direct un FakeSpinService, observam ca cei doi utilizatori, desi ambii folosesc FakeSpinService (unul explicit, celalalt implicit), au primit cate **o instanta diferita** a acestui service. <br />
-Totusi, daca inlocuim **useClass** cu **useExisting**, cele doua componente vor share-ui din nou aceeasi instanta a lui FakeSpinService, deoarece se va injecta instanta care **_exista_** deja in Injector, si nu se va crea una noua cum se intampla in cazul folosirii lui useClass.
+### UseValue, InjectionToken
+
+Pentru a face acest lucru, vom crea un injection token numit **FOOLS_DAY_TOKEN**. <br />
+Acest token va reprezenta o valoare booleană (true sau false) care indică dacă este ziua păcălelilor sau nu. <br />
+
+Am definit acest token în fișierul [spin-service.token.ts](app%2Fspin-service.token.ts), si il vom provide-ui in app.module.ts. <br />
+Valoarea pe care o vom provide-ui cand acest token este injectat, o vom seta **manual** cu true sau false, cu ajutorul lui **useValue**.
+
+---
+
+### UseFactory
+
+De aceasta data, dorim sa avem un mod dinamic prin care sa stabilim ce service vom injecta in functie de data. <br />
+
+Pentru a determina dacă este 1 aprilie sau nu, vom folosi un service numit **DateService**, care expune o metodă *isAprilFoolsDay()*. Il gasim aici: [date.service.ts](app%2Fdate.service.ts)<br />
+Vom renunta la FOOLS_DAY_TOKEN si la useValue, si le vom inlocui cu useFactory, care se va folosi de [spin-service.factory.ts](app%2Fspin-service.factory.ts). <br />
+
+Prin utilizarea provider key-ului **useFactory**, avem posibilitatea de a decide in mod **dinamic** dacă vom furniza un obiect de tip **SpinService** sau **FakeSpinService**, în funcție de rezultatul returnat de metoda isAprilFoolsDay().
+
+---
 

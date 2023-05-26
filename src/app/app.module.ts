@@ -5,11 +5,7 @@ import {SpinningWheelModule} from "../spinning-wheel/spinning-wheel.module";
 import {OneComponent} from "./one-component/one.component";
 import {AnotherComponent} from "./another-component/another.component";
 import {ButtonModule} from "primeng/button";
-import {PrizeGeneratorService} from "../prize-generator/service/prize-generator.service";
-import {FakePrizeGeneratorService} from "../prize-generator/service/fake-prize-generator.service";
-import {PrizeGeneratorModule} from "../prize-generator/prize-generator.module";
-import {SpinService} from "../spinning-wheel/service/spin.service";
-import {FakeSpinService} from "../spinning-wheel/service/fake-spin.service";
+import {FOOLS_DAY_TOKEN} from "./spin-service.token";
 
 @NgModule({
   declarations: [
@@ -22,12 +18,8 @@ import {FakeSpinService} from "../spinning-wheel/service/fake-spin.service";
     SpinningWheelModule,
     ButtonModule,
   ],
-  // providers: [
-  //   {
-  //     provide: SpinService, useExisting: FakeSpinService
-  //   }
-  // ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [{provide: FOOLS_DAY_TOKEN, useValue: true}]
 })
 export class AppModule {
 }

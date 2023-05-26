@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Subject} from "rxjs";
-import {PrizeGeneratorService} from "../../prize-generator/service/prize-generator.service";
+import {BehaviorSubject} from "rxjs";
 import {FakePrizeGeneratorService} from "../../prize-generator/service/fake-prize-generator.service";
 
 @Injectable({

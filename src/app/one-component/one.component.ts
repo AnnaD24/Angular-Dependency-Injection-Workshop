@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Inject, inject} from '@angular/core';
 import {SpinService} from "../../spinning-wheel/service/spin.service";
+import {FakeSpinService} from "../../spinning-wheel/service/fake-spin.service";
+import {FOOLS_DAY_TOKEN} from "../spin-service.token";
 
 @Component({
   selector: 'app-one-component',
@@ -7,6 +9,8 @@ import {SpinService} from "../../spinning-wheel/service/spin.service";
   styleUrls: ['./one.component.css'],
 })
 export class OneComponent {
-  constructor(protected spinService: SpinService) {}
+  spinService = this.foolsDay ? inject(FakeSpinService) : inject(SpinService);
+
+  constructor(@Inject(FOOLS_DAY_TOKEN) private foolsDay: boolean) {}
 
 }

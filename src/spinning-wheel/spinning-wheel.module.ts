@@ -13,6 +13,6 @@ import {SpinService} from "./service/spin.service";
   exports: [
     SpinningWheelComponent
   ],
-  providers: [SpinService]
+  // providers: [SpinService]
 })
 export class SpinningWheelModule { }

@@ -19,6 +19,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule
   ],
-  providers: [SpinService]
+  // providers: [SpinService]
 })
 export class FeedbackModule { }

@@ -12,7 +12,7 @@ import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 const routes: Routes = [
   {
     path: 'feedback',
-    loadChildren: () => import('./feedback/feedback.module').then(m => m.FeedbackModule)
+    loadChildren: () => import('../feedback/feedback.module').then(m => m.FeedbackModule)
   }
 ];
 
@@ -23,7 +23,7 @@ const routes: Routes = [
     AnotherClientComponent,
   ],
   imports: [
-    // RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes),
     BrowserModule,
     CardModule,
     SpinningWheelModule,

@@ -1,4 +1,4 @@
-import {Component, Host, Self, SkipSelf} from '@angular/core';
+import {Component} from '@angular/core';
 import {SpinService} from "../../spinning-wheel/service/spin.service";
 
 @Component({

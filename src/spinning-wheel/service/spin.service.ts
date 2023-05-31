@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Subject} from "rxjs";
 import {PrizeGeneratorService} from "../../prize-generator/service/prize-generator.service";
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class SpinService {
   prizeWon$ = new BehaviorSubject<string>('Nothing yet');
 

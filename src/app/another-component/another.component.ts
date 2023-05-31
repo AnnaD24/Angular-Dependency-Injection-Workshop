@@ -5,10 +5,10 @@ import {SpinService} from "../../spinning-wheel/service/spin.service";
   selector: 'app-another-component',
   templateUrl: './another.component.html',
   styleUrls: ['./another.component.scss'],
+  providers: [SpinService]
 })
 export class AnotherComponent {
 
-  constructor(public spinService: SpinService) {
-  }
+  constructor(public spinService: SpinService) {}
 
 }

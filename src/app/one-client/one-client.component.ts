@@ -7,6 +7,6 @@ import {SpinService} from "../../spinning-wheel/service/spin.service";
   styleUrls: ['./one-client.component.css']
 })
 export class OneClientComponent {
-  constructor(protected spinService: SpinService) {}
+  constructor(public spinService: SpinService) {}
 
 }

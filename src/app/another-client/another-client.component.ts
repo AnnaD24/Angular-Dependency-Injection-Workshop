@@ -8,7 +8,7 @@ import {SpinService} from "../../spinning-wheel/service/spin.service";
 })
 export class AnotherClientComponent {
 
-  constructor(protected spinService: SpinService) {}
+  constructor(public spinService: SpinService) {}
 
 
 }

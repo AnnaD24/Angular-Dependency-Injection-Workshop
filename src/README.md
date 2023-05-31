@@ -14,7 +14,7 @@ Prin @SkipSelf() omitem component injectorul curent, incepem cautarea in ierarhi
 ### @Host()
 
 Vom folosi directiva congrats-directive si vom observa ca aceasta va folosi doar instanta provide-uita in ea insasi, iar daca nu exista, <br />
-va cauta in ierarhia de injectori pana in injectorul componentei sale host.
+va cauta in ierarhia de injectori pana in injectorul componentei sale host. 
 ---
 
 

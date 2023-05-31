@@ -23,7 +23,7 @@ const routes: Routes = [
     AnotherClientComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
     BrowserModule,
     CardModule,
     SpinningWheelModule,

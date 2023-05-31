@@ -1,7 +1,5 @@
-import {Component, inject, Inject} from '@angular/core';
+import {Component, Host, inject, SkipSelf} from '@angular/core';
 import {SpinService} from "../../spinning-wheel/service/spin.service";
-import {FOOLS_DAY_TOKEN} from "../spin-service.token";
-import {FakeSpinService} from "../../spinning-wheel/service/fake-spin.service";
 
 @Component({
   selector: 'app-another-component',
@@ -10,9 +8,7 @@ import {FakeSpinService} from "../../spinning-wheel/service/fake-spin.service";
 })
 export class AnotherComponent {
 
-  spinService = this.foolsDay ? inject(FakeSpinService) : inject(SpinService);
-
-  constructor(@Inject(FOOLS_DAY_TOKEN) private foolsDay: boolean) {}
-
+  constructor(public spinService: SpinService) {
+  }
 
 }

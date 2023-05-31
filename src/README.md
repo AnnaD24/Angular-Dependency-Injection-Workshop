@@ -1,28 +1,30 @@
 
-## In acest exemplu vom explora utilizarea provider key-urilor useFactory și useValue.
+## In acest exemplu vom explora cum utilizam resolution modifiers
 
 Scopul nostru este să furnizăm (să **injectăm**) un **FakeSpinService doar** în cazul în care este 1 aprilie. In restul zilelor, vom injecta un SpinService. <br />
 
 ---
 
-### UseValue, InjectionToken
+### @SkipSelf()
 
-Pentru a face acest lucru, vom crea un injection token numit **FOOLS_DAY_TOKEN**. <br />
-Acest token va reprezenta o valoare booleană (true sau false) care indică dacă este ziua păcălelilor sau nu. <br />
-
-Am definit acest token în fișierul [spin-service.token.ts](app%2Fspin-service.token.ts), si il vom provide-ui in app.module.ts. <br />
-Valoarea pe care o vom provide-ui cand acest token este injectat, o vom seta **manual** cu true sau false, cu ajutorul lui **useValue**.
+Prin @SkipSelf() omitem component injectorul curent, incepem cautarea in ierarhia de injectori de la urmatoarea componenta.
 
 ---
 
-### UseFactory
+### @Host()
 
-De aceasta data, dorim sa avem un mod dinamic prin care sa stabilim ce service vom injecta in functie de data. <br />
+Vom folosi directiva congrats-directive si vom observa ca aceasta va folosi doar instanta provide-uita in ea insasi, iar daca nu exista, <br />
+va cauta in ierarhia de injectori pana in injectorul componentei sale host.
+---
 
-Pentru a determina dacă este 1 aprilie sau nu, vom folosi un service numit **DateService**, care expune o metodă *isAprilFoolsDay()*. Il gasim aici: [date.service.ts](app%2Fdate.service.ts)<br />
-Vom renunta la FOOLS_DAY_TOKEN si la useValue, si le vom inlocui cu useFactory, care se va folosi de [spin-service.factory.ts](app%2Fspin-service.factory.ts). <br />
 
-Prin utilizarea provider key-ului **useFactory**, avem posibilitatea de a decide in mod **dinamic** dacă vom furniza un obiect de tip **SpinService** sau **FakeSpinService**, în funcție de rezultatul returnat de metoda isAprilFoolsDay().
+### @Optional()
+
+Cu ajutorul lui @Optional() marcam o dependenta ca optionala, astfel incat nu vom mai vedea o eroare atunci cand niciun injector nu contine o instanta a serviciului injectat. <br />
+Poate fi folosita alaturi de orice alt resolution modifier.
 
 ---
 
+### @Self()
+
+Vom folosi directiva congrats-directive si vom observa ca aceasta va folosi instanta doar provide-uita in ea insasi.

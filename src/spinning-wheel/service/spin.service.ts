@@ -3,7 +3,7 @@ import {BehaviorSubject, Subject} from "rxjs";
 import {PrizeGeneratorService} from "../../prize-generator/service/prize-generator.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SpinService {
   prizeWon$ = new BehaviorSubject<string>('Nothing yet');
